@@ -1,0 +1,139 @@
+Menos e mais
+tecnica, treino e tempo e o que faz o codigo ficar legal - nao e de primeira que deixarei o codigo limpo, requer tempo
+
+doze conceitos principais para cleam code
+1 - ddd - Negocio ao condigo
+2 - Liguagem Onipresente
+3 - Principio SRP - principio da responsabilidade unica
+4 - Principio DRY - nao fazer duplicação
+5 - Indireção / Delegação
+6 - lei de demeter
+7 - Acoplamento e coesão
+8 - Imutabilidade
+9 - OO + Funções Puras
+10 - TDD e Teste tempestivos
+11 - Regatoração tempestiva
+12 - Regras da Simplicidade
+
+--------------------------------------------------
+1.1 - DDD negocios ao codigo
+    O dominio de um problema organiza os conceitos sobre os quais é baseada a solução de sofware.
+
+    User interface
+    application
+    Domain
+    Infratructure
+
+    Foco no negocios - Parte do codigo deve expressar o negócio
+    Isolamento do dominio - o COdigo de dominio e idiossincraticoo e particular
+    Infraestrutura a parte - teconologias vem e vão, o negocio permanece
+
+1.2 - Linguagem Onipresente
+    Linguagem Onipresente (Ubiqua)
+    -Temos e conceitos usados pelis desenvolvedores e pelos especialistas no negocio
+    -Presente na fala de todos e no codigo de dominio
+
+    Contexto Delimitado
+    - partes bem delimitadas de um dominio
+    - Candidatos a microsserviços
+
+    Tijolos de Construção
+    - Entidades, Onjetos de valor, agregadors
+    - Eventos de dominio
+    - Serviços, Fabricas, Repositorios
+
+
+1.3 - Principio da responsabilidade
+    Cada modulo de sofware deve ter um e apenas um motivo para mudar
+    SRP - Principio da responsabilidade Unica
+    O metodo ou classe deve fazer somente uma coisa (so salvar, e nao ler e salvar)
+
+1.4 - DRY - Don't repeat yourSelf (nao se repita - (codigom, esquisitom, teste))
+    Toda parte do reconhecimento deve ter uma representação unica e livre de ambiguidade em todo o sistema
+    Problmas
+    -Mais trabalho : Alterar mais vezes
+    -Mais risco: Encontrar todos os lugares
+    -Mais teste: testar varias vezes a mesma coisa
+    -Mais esforço de comunicação
+
+1.5 - Indireção ou Delegação
+    SRP - Fazer apenas uma coisa em um certo lugar
+    DRY - Fazer apenas em um lugar uma certa coisa
+    Coisas Unica em um lugar unico (aplicar o conceito 3 e 4)
+
+    PedidoController => frete => enderecoDelegate
+    3 clases com cada um com responsabilidade unica
+
+1.6 - Leu de demeter - Principio do menor conhecimento
+    Um modulo NAO DEVE EXNVERGAR O INTERIOR dos objetos que ele manipula
+
+    Um metodo "m"de uma classe 'C" sodeve chamar:
+    - objetos de tipo 'c'
+    - parametos passados para o metodo 'm'
+    - um objeto criado pelo proprio metodo 'm'
+    - variaveiss de isntacia de classe 'c'
+
+    se cria um metodo dentro de um Atributo para consumir outra classe, e NAO se chama Atributo de outra classe direta sem o Atributo
+
+    Claase C
+        Atributo a: a
+            Metodo 'm' (x:X) ====> aqui eka esta chamando um metodo e jogando em uma variavel
+
+    Classe x
+        Atributo y:Y ===> aqui ela esta quebrando a lei de Demeter, que ler outra classe que nao deve ler
+    
+    classe y
+    Atributo z:Z ===> aqui ela esta quebrando a lei de Demeter, que ler outra classe que nao deve ler
+
+1.7 - Baixo Acoplamento e Alta coesão
+    Coesão de uma classe
+    - Poucas variaveis de isntacia
+    - Cada metodo manipula uma ou mais
+
+    Alto aoplamento (baixa coesão)
+    -Poucas classes e grandes, Mais dependencias pro clases , Maior conhecimento
+
+1.8 - quanto mais imutavel, melhor
+    Imutabilidade e uma defesa contra efeitos colaterais
+
+    Vantagens 
+    - Mais seguros e confiais
+    - Mais legivel: 
+        minimiza testes e garantias
+        diminui codigos por tabela
+    - Paralelismo e escalabilidade
+
+1.9 - Funções Pura
+    1 - para um certo Input SEMPRE RETORNA O MESMO output
+    2 - Nao causa nenhum EFEITO COLATERAL
+    3 - Nao depende de nenhum dado externo (autocontida)
+
+    Vantagens
+    - Mais simples e menores
+    - Mais facil de entender e testar
+
+    Quando usar em codigo OO
+    SEMPRE QUE POSSIVEL
+    Em muitas situações nao e possivel: BD, integração, estados, etc
+    Possivel em regras de negocio, metodos utilitarios, internos, etc
+
+1.10 - TDD e testes tempestivos
+    TDD- Test dirven development
+    - Escreve um teste ue falha antesdo codigo produtivo
+    - faz o teste passa ao contruir o codigo produtivo
+    - refatora o codigoate o teste falhar (ou nao)
+
+    Testes tempestivos (TDD inclusive)
+    - atividades de engenharia (codigo design)
+    - Feedback rapido sobre o codigo testado (erra cedo)
+    - Gera codigo limpo atraves da "Dificuldade" de testar
+    - Antecipao custo gasto em correça~p de debug
+    - Ainda serve como teste de regrassão
+
+1.11 - Refatoração tempestiva
+    -Ima nova visãosobre o broblema
+    -Preparar para uma evolução ou mudança (Pequenas mudanças que fazem diferença no longo prazo)
+    Refatoração e a disciplina tecnica para reestruturar um determinado codigo, alterando sua estrutura
+    interna SEM MUDAR SEU COMPORTAMENTO externo.
+
+1.12 - 
