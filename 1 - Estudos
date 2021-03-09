@@ -136,4 +136,11 @@ doze conceitos principais para cleam code
     Refatoração e a disciplina tecnica para reestruturar um determinado codigo, alterando sua estrutura
     interna SEM MUDAR SEU COMPORTAMENTO externo.
 
-1.12 - 
+1.12 - Quatro regras da simplicidade (para fazer o codigo simples)
+    teste tempestivos
+
+            Os testes passam
+    Tevala intençao -- nenhuma duplicação
+            Minimo de elementos
+
+    
